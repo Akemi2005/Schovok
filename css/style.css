@@ -4,19 +4,16 @@
     box-sizing: border-box;
 }
 
-/* Початковий стан: прозорість 0 і трохи зміщення */
 .fade-in {
     opacity: 0;
     transform: translateY(20px);
-    transition: opacity 1s ease-out, transform 1s ease-out;
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 }
 
-/* Кінцевий стан: прозорість 1 і відсутність зміщення */
 .fade-in.show {
     opacity: 1;
     transform: translateY(0);
 }
-
 
 body {
     background: #F7F9F9;
@@ -116,7 +113,7 @@ header .nav{
 }
 
 .bg-fon{
-    background: url("../img/fon.jpg") bottom right / cover no-repeat;
+    background: url("../img/fon.webp") bottom right / cover no-repeat;
     position: absolute;
     top: 0;
     left: 0;
@@ -420,7 +417,7 @@ header .nav{
     left: 0;
     width: calc(100% + 80px);
     height: 1725px;
-    background: url("../img/back-lines.png") left center / cover no-repeat;
+    background: url("../img/back-lines.webp") left center / cover no-repeat;
     z-index: -20;
     transform: translateX(-40px);
 }
@@ -520,7 +517,7 @@ header .nav{
     bottom: -400px;
     left: 0;
     height: 500px;
-    background: url("../img/back-lines2.png") left center / cover no-repeat;
+    background: url("../img/back-lines2.webp") left center / cover no-repeat;
     z-index: -100;
     width: calc(100% + 80px);
     transform: translateX(-40px);
@@ -785,7 +782,7 @@ header .nav{
     top: -25px;
     left: -40px;
     height: 325px;
-    background: url("../img/back-lines3.png") left center / cover no-repeat;
+    background: url("../img/back-lines3.webp") left center / cover no-repeat;
     z-index: -100;
     width: 100%;
     max-width: 1440px;
@@ -877,7 +874,7 @@ header .nav{
 }
 
 .form-container {
-    background: url("../img/form.png") center/cover no-repeat;
+    background: url("../img/form.webp") center/cover no-repeat;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -986,7 +983,7 @@ footer {
 }
 
 .footer-info {
-    background: url("../img/footer.png") center/cover no-repeat;
+    background: url("../img/footer.webp") center/cover no-repeat;
     min-height: 397px;
     width: 100%;
     max-width: 897px;
@@ -1028,7 +1025,7 @@ footer {
 
 .footer-map a{
     display: flex;
-    background: url("../img/map.jpg") center/cover no-repeat;
+    background: url("../img/map.webp") center/cover no-repeat;
     border-radius: 30px;
     width: 100%;
     height: 421px;
@@ -1110,7 +1107,7 @@ footer {
         justify-content: center;
         align-items: center;
         z-index: 100;
-        background: url("../img/fon.jpg") bottom right / cover no-repeat;
+        background: url("../img/fon.webp") bottom right / cover no-repeat;
         border-radius: 30px;
     }
     .nav.open {
@@ -1186,7 +1183,7 @@ footer {
         right: 0;
         top: -20px;
         border-radius: 0;
-        background: url("../img/fon-phone.jpg") bottom right / cover no-repeat;
+        background: url("../img/fon-phone.webp") bottom right / cover no-repeat;
     }
     .nav.open {
         height: 90vh;
@@ -1202,7 +1199,7 @@ footer {
         padding-top: 220px;
     }
     .bg-fon{
-        background: url("../img/fon-phone.jpg") bottom right / cover no-repeat;
+        background: url("../img/fon-phone.webp") bottom right / cover no-repeat;
         border-radius: 0;
     }
     .pc-text {
