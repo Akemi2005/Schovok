@@ -4,10 +4,28 @@
     box-sizing: border-box;
 }
 
+/* Початковий стан: прозорість 0 і трохи зміщення */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+/* Кінцевий стан: прозорість 1 і відсутність зміщення */
+.fade-in.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
 body {
     background: #F7F9F9;
     padding: 40px;
     font-family: "Montserrat", sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 p {
@@ -144,19 +162,49 @@ header .nav{
     font-family: 'Quicksand', sans-serif;
 }
 
-.btn-find {
+.bnt-block {
+    margin-top: 20px;
+    display: flex;
+}
+
+.bnt-block:hover .btn-find,
+.bnt-block:hover .arrow-block {
+    background: #F7F9F9;
+    color: #374836;
+}
+
+.btn-find,
+.arrow-block {
     display: flex;
     align-items: center;
-    margin-top: 20px;
-    padding: 0 0 0 15%;
-    background: url("../img/btn.png") center/ contain no-repeat;
+    justify-content: center;
     height: 70px;
-    width: 463px;
     font-weight: 700;
     font-size: 24px;
     line-height: 29px;
     color: #F7F9F9;
     text-decoration: none;
+    background: rgba(247, 249, 249, 0.03);
+    border: 2px solid #F7F9F9;
+    box-shadow: inset 0 0 4px rgba(255, 255, 255, 0.05), inset 0 4px 4px rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(17px);
+    border-radius: 46px;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.btn-find {
+    width: 388px;
+}
+
+.arrow-block {
+    width: 70px;
+    height: 70px;
+    transform: rotate(90deg);
+    margin-left: -20px;
+}
+
+.arrow-block i{
+    font-size: 30px;
 }
 
 .pc-text {
@@ -183,7 +231,7 @@ header .nav{
 }
 
 .card-container,
-.card-white {
+.card-white, .card-white-phone {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -191,6 +239,10 @@ header .nav{
     max-width: 429px;
     min-width: 318px;
     min-height: 318px;
+}
+
+.card-white-phone {
+    display: none;
 }
 
 .cards-wrap {
@@ -294,14 +346,14 @@ header .nav{
     border-radius: 30px;
 }
 
-.card-white {
+.card-white, .card-white-phone {
     flex-grow: 1;
     background: #F7F9F9;
     border: 2px solid #374836;
     border-radius: 30px;
 }
 
-.card-white p {
+.card-white p, .card-white-phone p {
     text-transform: uppercase;
     color: #375137;
     font-weight: bold;
@@ -330,8 +382,14 @@ header .nav{
     font-size: 20px;
     color: #F7F9F9;
     position: relative;
+    transition: background 0.3s ease, color 0.3s ease;
 }
 
+.btn-book-block a:hover {
+    background: #F7F9F9;
+    border: 2px solid #A2B985;
+    color: #A2B985;
+}
 
 .btn-book-block a span{
     width: 70px;
@@ -394,7 +452,8 @@ header .nav{
     backdrop-filter: blur(5px);
     border-radius: 30px 0 0 30px;
     overflow: hidden;
-    margin-right: -40px;
+    right: -40px;
+    position: relative;
 }
 
 .food-card {
@@ -402,9 +461,11 @@ header .nav{
     flex-direction: column;
     gap: 20px;
     color: #374836;
+    width: 320px;
 }
 
-.food-card p {
+.food-card p, .food-card p a{
+    text-decoration: none;
     color: #374836;
     margin-top: 5px;
 }
@@ -471,7 +532,6 @@ header .nav{
     max-width: 1245px;
 }
 
-
 .houses-section p {
     color: #375137;
     padding: 20px 0 50px 10px;
@@ -479,7 +539,6 @@ header .nav{
 
 .houses-section h2 img {
     position: absolute;
-    top: 80px;
 }
 
 .houses-cards {
@@ -490,13 +549,15 @@ header .nav{
 
 .house-card {
     position: relative;
-    width: 665px;
+    min-width: 500px;
+    max-width: 665px;
     height: 800px;
     padding: 30px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     border-radius: 30px;
+    scroll-snap-align: start;
 }
 
 .house-card p{
@@ -561,6 +622,12 @@ header .nav{
     text-decoration: none;
     position: relative;
     margin-top: 30px;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.card-btn-active:hover, .form-button a:hover{
+    color: #374836;
+    background: #F7F9F9;
 }
 
 .card-btn-active span{
@@ -574,25 +641,32 @@ header .nav{
     height: 78px;
     background: #F7F9F9;
     border-radius: 100px;
-    color: black;
+    color: #374836;
     transform: rotate(90deg);
 }
 
-.close-card .points-block, .close-card  .block-info-active {
+.close-card .points-block, .close-card  .block-info-active, .text-phone {
     display: none !important;
 }
 
-.house-card:nth-child(2), .house-card:nth-child(3)  {
+.close-card  {
     justify-content: flex-end;
     width: 100%;
     max-width: 318px;
+    min-width: 205px;
+    transition: opacity 0.3s ease, height 0.3s ease;
 }
 
 .block-info-close {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+    transition: opacity 0.3s ease, height 0.3s ease;
+    overflow: hidden;
+}
 
+.block-info-close.hidden {
+    display: none;
 }
 
 .block-info-close h3 {
@@ -611,89 +685,99 @@ header .nav{
 .review-section h2 {
     font-weight: 700;
     font-size: 96px;
-    line-height: 117px;
+    line-height: 90%;
     color: #375137;
 }
 
 .review-section p {
     color: #375137;
-    width: 675px;
+    max-width: 675px;
     margin-bottom: 80px;
 }
 
-.review-swiper-block {
+.swiper-review {
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    min-height: 100%;
+    margin: 0;
+    background: #f9f9f9;
     position: relative;
 }
 
-.swipe-left, .swipe-right {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 70px;
-    height: 70px;
-    border: 2px solid #375137;
-    border-radius: 100px;
+.swiper {
+    width: 100%;
+    max-width: 1250px;
+}
+
+.swiper-slide {
     display: flex;
-    align-items: center;
     justify-content: center;
-    text-decoration: none;
-    transition: all 0.3s ease;
-}
-
-.swipe-left:hover, .swipe-right:hover {
-    border-color: #7E8E80;
-}
-
-.swipe-left:hover i, .swipe-right:hover i {
-    color: #7E8E80 !important;
-    transition: all 0.3s ease;
-}
-
-.swipe-left {
-    right: 0;
-}
-
-.swipe-right {
-    left: 0;
-}
-
-.review-block {
-    display: flex;
     align-items: center;
-    gap: 30px;
+    border-radius: 30px;
+    height: auto !important;
+    overflow: hidden;
+    transition: transform 0.5s ease;
+    max-width: 416px;
+    max-height: 676px;
 }
-.swiper-line {
+
+.swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.swiper-button-next, .swiper-button-prev {
+    position: fixed;
+    top: 50%;
+    z-index: 10;
+    transform: translateY(-50%);
+    color: #375137 !important;
+}
+
+.swiper-button-next {
+    right: 0 !important;
+}
+
+.swiper-button-prev {
+    left: 0 !important;
+}
+
+.swiper-pagination {
     display: flex;
-    gap: 10px;
-    margin-top: 60px;
+    justify-content: center;
+    align-items: center;
+    position: absolute !important;
+    bottom: -60px !important;
+    left: 0 !important;
+    right: 0 !important;
 }
 
-.swiper-line span {
-    width: 146px;
-    height: 5px;
-    background: #A2B985;
-    border-radius: 10px;
+.swiper-pagination-bullet {
+    width: 146px !important;
+    height: 5px !important;
+    background: #A2B985 !important;
+    border-radius: 2px !important;
+    transition: background 0.3s, opacity 0.3s !important;
 }
 
-.swiper-line span.stories-now{
-    background:  #7E8E80!important;
+.swiper-pagination-bullet-active {
+    background: #7E8E80 !important;
+    opacity: 1 !important;
 }
 
 .faq-section {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 200px 0;
+    padding: 250px 0;
     position: relative;
 }
 
 .back-lines-three {
     position: absolute;
-    top: -75px;
+    top: -25px;
     left: -40px;
     height: 325px;
     background: url("../img/back-lines3.png") left center / cover no-repeat;
@@ -713,7 +797,7 @@ header .nav{
 .faq-form h3{
     font-weight: 700;
     font-size: 64px;
-    line-height: 78px;
+    line-height: 90%;
     color: #F7F9F9;
     margin-bottom: 70px;
 }
@@ -722,11 +806,13 @@ header .nav{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 15px;
     padding: 20px 0;
     border-top: 3px solid #7E8E80;
+    cursor: pointer;
 }
 
-.question-block:last-child {
+.answer-wrap:last-child {
     border-bottom: 3px solid #7E8E80;
 }
 
@@ -747,6 +833,31 @@ header .nav{
     color: #F7F9F9;
 }
 
+.answer-wrap {
+    display: flex;
+    flex-direction: column;
+}
+
+.answer {
+    display: none;
+    color: #F7F9F9;
+    font-size: 18px;
+    padding: 0 0 24px 100px;
+}
+
+.answer.flex {
+    display: flex;
+    flex-direction: column;
+}
+
+.arrow-icon {
+    transition: transform 0.3s ease;
+}
+
+.arrow-icon.rotated {
+    transform: rotate(90deg);
+}
+
 .book-section {
     display: flex;
     flex-direction: column;
@@ -756,29 +867,28 @@ header .nav{
 .book-section h2 {
     font-weight: 700;
     font-size: 96px;
-    line-height: 117px;
+    line-height: 90%;
     color: #375137;
-}
-
-.book-section h2 img{
-    margin-top: -15px;
 }
 
 .form-container {
     background: url("../img/form.png") center/cover no-repeat;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 130px;
     padding: 50px 100px 50px 50px;
     border-radius: 30px;
     color: #f7f9f9;
     max-width: 1360px;
+    width: 100%;
     margin: 0 auto;
 }
 
 .form-row {
     display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
     gap: 30px;
 }
 
@@ -842,6 +952,7 @@ textarea {
     font-weight: 700;
     font-size: 20px;
     line-height: 24px;
+    transition: background 0.3s ease, color 0.3s ease;
 }
 
 .form-button a span {
@@ -859,6 +970,7 @@ textarea {
 
 footer {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     gap: 30px;
@@ -868,13 +980,14 @@ footer {
 
 .footer-info {
     background: url("../img/footer.png") center/cover no-repeat;
-    height: 397px;
+    min-height: 397px;
     width: 100%;
     max-width: 897px;
     border-radius: 30px;
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
+    flex-wrap: wrap;
     padding: 100px 50px;
 }
 
@@ -896,15 +1009,23 @@ footer {
 .footer-block a{
     font-weight: 400;
     font-size: 20px;
-    line-height: 25px;
     color: #F7F9F9;
     text-decoration: none;
 }
 
-.footer-map iframe{
+.footer-map {
+    width: 433px;
+    height: 421px;
+    cursor: pointer;
+}
+
+.footer-map a{
+    display: flex;
+    background: url("../img/map.jpg") center/cover no-repeat;
     border-radius: 30px;
-    height: 400px;
-    max-width: 433px;
+    width: 100%;
+    height: 421px;
+    cursor: pointer;
 }
 
 @media (max-width: 1420px) {
@@ -916,15 +1037,40 @@ footer {
         font-size: 60px;
     }
     .btn-find {
-        background: url("../img/btn-phone.png") center/ contain no-repeat;
         height: 60px;
-        width: 303px;
+        width: 244px;
         font-size: 18px;
         line-height: 22px;
-        padding: 0 0 0 28px;
+    }
+    .arrow-block {
+        width: 60px;
+        height: 60px;
+    }
+    .arrow-block i{
+        font-size: 25px;
     }
 }
-
+@media (max-width: 1345px) {
+    .houses-section h2 img {
+        position: relative;
+        bottom: -10px;
+    }
+    .points-block {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0;
+        max-width: 375px;
+    }
+    .point:nth-child(2), .point:nth-child(4) {
+        margin-left: 0;
+    }
+    .point {
+        margin-top: -15px;
+    }
+    .point:first-child {
+        margin-top: 0;
+    }
+}
 @media (max-width: 1140px) {
     .food-section h2 {
         margin-bottom: 30px;
@@ -957,15 +1103,25 @@ footer {
         justify-content: center;
         align-items: center;
         z-index: 100;
-        background: rgba(247, 249, 249, 0.03);
-        box-shadow: inset 0 4px 4px rgba(255, 255, 255, 0.15);
-        backdrop-filter: blur(7px);
+        background: url("../img/fon.jpg") bottom right / cover no-repeat;
         border-radius: 30px;
     }
     .nav.open {
         display: flex !important;
         padding: 200px 20px;
-        height: 920px;
+        height: 91vh;
+    }
+    .nav.open:after {
+        content: "";
+        left: 0;
+        top: 0;
+        position: absolute;
+        background: rgba(247, 249, 249, 0.03);
+        box-shadow: inset 0 4px 4px rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(7px);
+        height: 91vh;
+        width: 100%;
+        z-index: -10;
     }
     .nav-list {
         flex-direction: column;
@@ -982,6 +1138,23 @@ footer {
     }
     .burger.active span:nth-child(3) {
         transform: rotate(-45deg) translate(10px, -5px);
+    }
+    .houses-cards-wrapper {
+        overflow-x: auto;
+        display: flex;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+    }
+    .houses-cards {
+        gap: 20px;
+        padding: 0 20px 0 0;
+    }
+    .sizer-active {
+        display: none;
+    }
+    .text-phone {
+        display: flex !important;
+        padding: 0 !important;
     }
 }
 
@@ -1004,15 +1177,21 @@ footer {
         left: 0;
         right: 0;
         top: -20px;
+        border-radius: 0;
+        background: url("../img/fon-phone.jpg") bottom right / cover no-repeat;
     }
     .nav.open {
-        padding: 100px 20px;
-        height: 500px;
+        height: 90vh;
+    }
+    .nav.open:after {
+        height: 90vh;
     }
     .main-section {
         position: relative;
         width: 100%;
-        height: 100vh;
+        height: 90vh;
+        justify-content: flex-start;
+        padding-top: 220px;
     }
     .bg-fon{
         background: url("../img/fon-phone.jpg") bottom right / cover no-repeat;
@@ -1039,19 +1218,40 @@ footer {
         left: 37px;
     }
     .choose-house {
-        padding: 180px 20px 240px;
+        padding: 100px 20px 150px;
+        gap: 20px;
     }
-    .card-photo:last-child {
+    .card-photo, .card-white {
         display: none;
     }
-    .card-white {
+    .card-white-phone {
+        display: flex;
         min-height: 169px;
         text-align: center;
     }
-    .choose-house h2 {
+    .choose-house h2, .food-section h2, .houses-section h2,
+    .review-section h2, .faq-section h3, .book-section h2 {
         font-size: 50px;
     }
-
+    .choose-house h2 {
+        margin-bottom: 30px;
+    }
+    .faq-section {
+        padding: 200px 20px 150px;
+    }
+    .review-section {
+        padding: 150px 20px 0;
+    }
+    .review-section p {
+        margin-bottom: 50px;
+    }
+    .book-section {
+        padding: 0 20px;
+    }
+    .houses-section h2 img, .book-section h2 img{
+        height: 50px;
+        bottom: -5px;
+    }
     .btn-book-block a{
         max-width: 335px;
         height: 60px;
@@ -1064,6 +1264,195 @@ footer {
     .green-block {
         display: none;
     }
+    .form-container {
+        flex-direction: column;
+        align-items: center;
+        padding: 30px 20px;
+        gap: 50px;
+    }
+    .form-row {
+        flex-direction: column;
+    }
+    .form-button {
+        margin-left: -40px;
+    }
+    .form-button a {
+        padding: 18px 28px;
+        font-size: 18px;
+        line-height: 22px;
+    }
+    .form-button a span {
+        width: 60px;
+        height: 60px;
+        right: -40px;
+    }
+    .faq-form {
+        padding: 30px 30px 50px;
+        margin: 0 20px;
+    }
+    .faq-form h3{
+        margin-bottom: 30px;
+    }
+    .question img {
+        display: none;
+    }
+    footer {
+        padding: 0 20px 30px;
+    }
+    .footer-info {
+        flex-direction: column;
+        align-content: space-around;
+        gap: 50px;
+        padding: 30px;
+    }
+    .footer-block ul{
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        margin-top: 0;
+    }
+    .houses-cards {
+        gap: 20px;
+    }
+    .house-card .close-card .block-info-active {
+        display: block !important;
+    }
+    .house-card .close-card .block-info-close {
+        display: flex !important;
+    }
+    .house-card .close-card .points-block,
+    .house-card .close-card .sizer-active {
+        display: flex !important;
+    }
+    .house-card {
+        min-width: 315px;
+        height: 600px;
+        padding: 20px;
+    }
+    .point {
+        padding: 20px 30px;
+        font-size: 18px;
+        max-width: 200px;
+    }
+    .card-text-active {
+        display: none;
+    }
+    .card-title-active {
+        font-size: 50px;
+        line-height: 100%;
+        margin-bottom: 0;
+    }
+    .card-btn-active {
+        padding: 20px 50px;
+        max-width: 220px;
+        font-size: 18px;
+        margin-top: 20px;
+        text-align: center;
+    }
+    .card-btn-active span{
+        top: 7px;
+    }
+    .swipe-left, .swipe-right {
+        display: none;
+    }
+    .swiper-line {
+        margin-top: 50px;
+    }
+    .swiper-line span {
+        width: 50px;
+    }
+    .btn-book-block a{
+        width: 298px;
+        height: 60px;
+        font-size: 18px;
+    }
+    .btn-book-block a span{
+        width: 60px;
+        height: 60px;
+    }
+    .back-lines-three {
+        left: 0;
+    }
+    .back-lines-two {
+        width: 100%;
+        transform: translateX(0);
+    }
+    .back-lines {
+        left: 0;
+        width: 100%;
+        transform: translateX(0);
+    }
+    .food-cards {
+        height: 393px;
+        padding: 20px;
+        right: -20px;
+    }
+    .food-card img{
+        width: 295px;
+        height: 231px;
+    }
+    .food-card {
+        width: 290px;
+    }
+    .foods-block {
+        gap: 25px;
+    }
+    .food-section {
+        padding: 0 20px 0 0;
+    }
+    .food-section h2 {
+        margin-bottom: 50px;
+        padding: 0 0 0 20px;
+    }
+    .houses-section {
+        padding: 150px 0 0 20px;
+    }
+    .cards-wrap {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scroll-behavior: smooth;
+        scrollbar-width: none;
+        padding: 0 100px 0 0;
+    }
+    .cards-wrap::-webkit-scrollbar {
+        display: none;
+    }
+    .card-container {
+        max-width: 292px;
+        min-width: 292px;
+        min-height: 292px;
+    }
+    .answer {
+        display: none;
+        color: #F7F9F9;
+        font-size: 18px;
+        padding: 0 0 24px 0;
+    }
+    .swiper-slide {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 30px;
+        height: auto !important;
+        overflow: hidden;
+        transition: transform 0.5s ease;
+        min-width: 330px;
+        min-height: 514px;
+    }
+    .swiper-pagination {
+        bottom: -50px !important;
+    }
+    .houses-section p {
+        padding: 10px 0 20px;
+    }
+    .swiper-button-next, .swiper-button-prev {
+        display: none !important;
+    }
 }
 
 @media (max-width: 370px) {
@@ -1071,11 +1460,7 @@ footer {
         justify-content: center;
     }
     .btn-find {
-        background: url("../img/btn-phone.png") center/ contain no-repeat;
-        height: 50px;
-        width: 250px;
         font-size: 16px;
         line-height: 22px;
-        padding: 0 0 0 18px;
     }
 }

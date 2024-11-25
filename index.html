@@ -9,6 +9,7 @@
     <link rel="icon" type="image/png" href="img/favicon.png" sizes="16x16">
     <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
     <meta name="description" content="Оренда гірських будиночків">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
@@ -20,9 +21,9 @@
         <nav class="nav">
             <ul class="nav-list">
                 <li><a href="#">Головна</a></li>
-                <li><a href="#">Будиночки</a></li>
-                <li><a href="#">Ресторан</a></li>
-                <li><a href="#">Контакти</a></li>
+                <li><a href="#houses">Будиночки</a></li>
+                <li><a href="#restaurant">Ресторан</a></li>
+                <li><a href="#footer">Контакти</a></li>
             </ul>
             <div class="language-change">
                 <a href="#" class="active">UA</a>
@@ -38,71 +39,79 @@
     <main class="main-section">
         <div class="bg-fon">
         </div>
-        <div class="block-main-texts">
+        <div class="block-main-texts fade-in">
             <div class="row-text-block">
-                <img src="img/marker%20text.png" alt="img">
-                <div class="column-block">
-                    <h1>ваш релакс серед гір</h1>
+                <img src="img/marker%20text.png" alt="img" class="fade-in">
+                <div class="column-block fade-in">
+                    <h1>Ваш релакс серед гір</h1>
                     <div class="column-text-block">
                         <p>Серед трьох унікальних будиночків
                             знайдіть ваш затишний сховок!</p>
-                        <a href="#" class="btn-find">Знайти свій сховок</a>
+                        <div class="bnt-block">
+                            <a href="#choose" class="btn-find">Знайти свій сховок</a>
+                            <a href="#choose" class="arrow-block"><i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <p class="pc-text">с. Дземброня – вдихніть свіже гірське повітря,
+        <p class="pc-text fade-in">с. Дземброня – вдихніть свіже гірське повітря,
             відчуйте спокій Карпат!</p>
     </main>
-    <section class="choose-house">
+    <section class="choose-house" id="choose">
         <h2>Обери свій ідеальний будиночок</h2>
-        <div class="cards-wrap">
+        <div class="cards-wrap fade-in">
             <div class="card-container">
                 <img src="img/card-text.png" alt="img" class="fly-text">
                 <div class="card-text">
                     <h3>Сховок</h3>
                     <p>на 4-ох</p>
                 </div>
-                <a href="#" class="arrow">
+                <a href="#houses" class="arrow">
                     <span><i class="fa-solid fa-arrow-right fa-lg" style="color: #7E8E80;"></i></span>
                 </a>
             </div>
-            <div class="card-photo" style="background: url('img/card-block2.jpg') center/ cover no-repeat"></div>
-            <div class="card-container">
+            <div class="card-photo fade-in" style="background: url('img/card-block2.jpg') center/ cover no-repeat"></div>
+            <div class="card-container fade-in">
                 <img src="img/card-text3.png" alt="img" class="fly-text">
                 <div class="card-text">
                     <h3>Криж</h3>
                     <p>на 4-ох</p>
                 </div>
-                <a href="#" class="arrow">
+                <a href="#houses" class="arrow">
                     <span><i class="fa-solid fa-arrow-right fa-lg" style="color: #7E8E80;"></i></span>
                 </a>
             </div>
-            <div class="card-white">
+            <div class="card-white fade-in">
                 <p>Обрали?<br>
                     Хутчіш забронюйте
                     <br>свій Сховок!</p>
             </div>
-            <div class="card-container">
+            <div class="card-container fade-in">
                 <img src="img/card-text2.png" alt="img" class="fly-text">
                 <div class="card-text">
                     <h3>Хтивий</h3>
                     <p>на 2-ох</p>
                 </div>
-                <a href="#" class="arrow">
+                <a href="#houses" class="arrow">
                     <span><i class="fa-solid fa-arrow-right fa-lg" style="color: #7E8E80;"></i></span>
                 </a>
             </div>
-            <div class="card-photo" style="background: url('img/card-block1.jpg') center/ cover no-repeat"></div>
+            <div class="card-photo fade-in" style="background: url('img/card-block1.jpg') center/ cover no-repeat"></div>
         </div>
-        <div class="btn-book-block">
-            <a href="#">Забронювати Сховок <span><i class="fa-solid fa-arrow-right fa-xl" style="color: #A2B985;"></i></span></a>
+        <div class="card-white-phone fade-in">
+            <p>Обрали?<br>
+                Хутчіш забронюйте
+                <br>свій Сховок!</p>
+        </div>
+        <div class="btn-book-block fade-in">
+            <a href="#houses">Забронювати Сховок <span><i class="fa-solid fa-arrow-right fa-xl" style="color: #A2B985;"></i></span></a>
         </div>
     </section>
-    <section class="food-section">
+    <section class="food-section" id="restaurant">
         <div class="back-lines"></div>
         <h2>Смак Карпат у кожній страві</h2>
-        <div class="food-row">
+        <div class="food-row fade-in">
             <div class="food-cards">
                 <div class="foods-block">
                     <div class="food-card">
@@ -126,10 +135,24 @@
                             <p>зі сметаною</p>
                         </div>
                     </div>
+                    <div class="food-card">
+                        <img src="img/card4.png" alt="img">
+                        <div>
+                            <h3>Млинці</h3>
+                            <p>із повидлом</p>
+                        </div>
+                    </div>
+                    <div class="food-card">
+                        <img src="img/card5.jpg" alt="img">
+                        <div>
+                            <h3>Переходьте в наш</h3>
+                            <p><a target="_blank" href="https://www.instagram.com/skhovok.house/">інстаграм</a></p>
+                        </div>
+                    </div>
                 </div>
                 <div class="swiper-btn">
-                    <a href="#"><i class="fa-solid fa-angles-left fa-xl" style="color: #374836;"></i></a>
-                    <a href="#"><i class="fa-solid fa-angles-right fa-xl" style="color: #374836;"></i></a>
+                    <a href="#" class="prev-btn"><i class="fa-solid fa-angles-left fa-xl" style="color: #374836;"></i></a>
+                    <a href="#" class="next-btn"><i class="fa-solid fa-angles-right fa-xl" style="color: #374836;"></i></a>
                 </div>
             </div>
             <div class="green-block">
@@ -139,172 +162,208 @@
         </div>
     </section>
     <section class="houses-section">
-        <h2>Вже відчуваєш, як манять гори?
+        <h2 class="fade-in">Вже відчуваєш, як манять гори?
             <img src="img/markertext2.png" alt="img">
         </h2>
-        <p>Лови наш прайс і плануй свій ідеальний
+        <p id="houses fade-in">Лови наш прайс і плануй свій ідеальний
             відпочинок серед природи.</p>
-        <div class="houses-cards">
-            <div class="house-card" style="background: url('img/card-img1.jpg') center/ cover no-repeat">
-                <div class="sizer-active">
-                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="undefined"><path d="M120-120v-320h80v184l504-504H520v-80h320v320h-80v-184L256-200h184v80H120Z"/></svg>
-                </div>
-                <div class="points-block">
-                    <div class="point">
-                        Спальні x2
+        <div class="houses-cards-wrapper fade-in">
+            <div class="houses-cards">
+                <div class="house-card" style="background: url('img/card-img1.jpg') center/ cover no-repeat">
+                    <div class="sizer-active">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="undefined"><path d="M120-120v-320h80v184l504-504H520v-80h320v320h-80v-184L256-200h184v80H120Z"/></svg>
                     </div>
-                    <div class="point">
-                        Санвузли x2
+                    <div class="points-block">
+                        <div class="point">
+                            Спальні x2
+                        </div>
+                        <div class="point">
+                            Санвузли x2
+                        </div>
+                        <div class="point">
+                            Гарячий чан з гідромасажем
+                        </div>
+                        <div class="point">
+                            Кухня
+                        </div>
                     </div>
-                    <div class="point">
-                        Гарячий чан з гідромасажем
+                    <div class="block-info-active">
+                        <p class="text-phone">6900 uah за ніч</p>
+                        <h3 class="card-title-active">Сховок</h3>
+                        <p class="card-text-active">Повністю обладнана кухня, розваги на будь-який смак бібліотека,
+                            проектор, телескоп, настільні ігри та гарячий чан на терасі
+                            забезпечать незабутній відпочинок.</p>
+                        <a href="#book" class="card-btn-active">Я обрав свій сховок
+                            <span><i class="fa-solid fa-arrow-right fa-xl"></i></span>
+                        </a>
                     </div>
-                    <div class="point">
-                        Кухня
-                    </div>
-                </div>
-                <div class="block-info-active">
-                    <h3 class="card-title-active">Сховок</h3>
-                    <p class="card-text-active">Повністю обладнана кухня, розваги на будь-який смак бібліотека,
-                        проектор, телескоп, настільні ігри та гарячий чан на терасі
-                        забезпечать незабутній відпочинок.</p>
-                    <a href="#" class="card-btn-active">Я обрав свій сховок
-                        <span><i class="fa-solid fa-arrow-right fa-xl"></i></span>
-                    </a>
-                </div>
-            </div>
-            <div class="house-card close-card" style="background: url('img/card-img2.jpg') center/ cover no-repeat">
-                <div class="sizer-active">
-                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="undefined"><path d="m136-80-56-56 264-264H160v-80h320v320h-80v-184L136-80Zm344-400v-320h80v184l264-264 56 56-264 264h184v80H480Z"/></svg>
-                </div>
-                <div class="points-block">
-                    <div class="point">
-                        Спальні x2
-                    </div>
-                    <div class="point">
-                        Санвузли x2
-                    </div>
-                    <div class="point">
-                        Гарячий чан з гідромасажем
-                    </div>
-                    <div class="point">
-                        Кухня
+                    <div class="block-info-close hidden">
+                        <h3>Сховок <br>на 2х</h3>
+                        <p>6900 uah за ніч</p>
                     </div>
                 </div>
-                <div class="block-info-active">
-                    <h3 class="card-title-active">Сховок</h3>
-                    <p class="card-text-active">Повністю обладнана кухня, розваги на будь-який смак бібліотека,
-                        проектор, телескоп, настільні ігри та гарячий чан на терасі
-                        забезпечать незабутній відпочинок.</p>
-                    <a href="#" class="card-btn-active">Я обрав свій сховок
-                        <span><i class="fa-solid fa-arrow-right fa-xl"></i></span>
-                    </a>
-                </div>
-                <div class="block-info-close">
-                    <h3>Криж на 4х</h3>
-                    <p>7800 uah за ніч</p>
-                </div>
-            </div>
-            <div class="house-card close-card" style="background: url('img/card-img3.jpg') center/ cover no-repeat">
-                <div class="sizer-active">
-                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="undefined"><path d="m136-80-56-56 264-264H160v-80h320v320h-80v-184L136-80Zm344-400v-320h80v184l264-264 56 56-264 264h184v80H480Z"/></svg>
-                </div>
-                <div class="points-block">
-                    <div class="point">
-                        Спальні x2
+                <div class="house-card close-card" style="background: url('img/card-img2.jpg') center/ cover no-repeat">
+                    <div class="sizer-active">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="undefined"><path d="m136-80-56-56 264-264H160v-80h320v320h-80v-184L136-80Zm344-400v-320h80v184l264-264 56 56-264 264h184v80H480Z"/></svg>
                     </div>
-                    <div class="point">
-                        Санвузли x2
+                    <div class="points-block">
+                        <div class="point">
+                            Спальні x2
+                        </div>
+                        <div class="point">
+                            Санвузли x2
+                        </div>
+                        <div class="point">
+                            Гарячий чан з гідромасажем
+                        </div>
+                        <div class="point">
+                            Кухня
+                        </div>
                     </div>
-                    <div class="point">
-                        Гарячий чан з гідромасажем
+                    <div class="block-info-active">
+                        <p class="text-phone">7800 uah за ніч</p>
+                        <h3 class="card-title-active">Криж</h3>
+                        <p class="card-text-active">Повністю обладнана кухня, розваги на будь-який смак бібліотека,
+                            проектор, телескоп, настільні ігри та гарячий чан на терасі
+                            забезпечать незабутній відпочинок.</p>
+                        <a href="#book" class="card-btn-active">Я обрав свій сховок
+                            <span><i class="fa-solid fa-arrow-right fa-xl"></i></span>
+                        </a>
                     </div>
-                    <div class="point">
-                        Кухня
+                    <div class="block-info-close">
+                        <h3>Криж <br>на 4х</h3>
+                        <p>7800 uah за ніч</p>
                     </div>
                 </div>
-                <div class="block-info-active">
-                    <h3 class="card-title-active">Сховок</h3>
-                    <p class="card-text-active">Повністю обладнана кухня, розваги на будь-який смак бібліотека,
-                        проектор, телескоп, настільні ігри та гарячий чан на терасі
-                        забезпечать незабутній відпочинок.</p>
-                    <a href="#" class="card-btn-active">Я обрав свій сховок
-                        <span><i class="fa-solid fa-arrow-right fa-xl"></i></span>
-                    </a>
-                </div>
-                <div class="block-info-close">
-                    <h3>Хтивий на 2х</h3>
-                    <p>5900 uah за ніч</p>
+                <div class="house-card close-card" style="background: url('img/card-img3.jpg') center/ cover no-repeat">
+                    <div class="sizer-active">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="undefined"><path d="m136-80-56-56 264-264H160v-80h320v320h-80v-184L136-80Zm344-400v-320h80v184l264-264 56 56-264 264h184v80H480Z"/></svg>
+                    </div>
+                    <div class="points-block">
+                        <div class="point">
+                            Спальні x1
+                        </div>
+                        <div class="point">
+                            Санвузли x1
+                        </div>
+                        <div class="point">
+                            Гарячий чан з гідромасажем
+                        </div>
+                        <div class="point">
+                            Кухня
+                        </div>
+                    </div>
+                    <div class="block-info-active">
+                        <p class="text-phone">5900 uah за ніч</p>
+                        <h3 class="card-title-active">Хтивий</h3>
+                        <p class="card-text-active">Повністю обладнана кухня, розваги на будь-який смак бібліотека,
+                            проектор, телескоп, настільні ігри та гарячий чан на терасі
+                            забезпечать незабутній відпочинок.</p>
+                        <a href="#book" class="card-btn-active">Я обрав свій сховок
+                            <span><i class="fa-solid fa-arrow-right fa-xl"></i></span>
+                        </a>
+                    </div>
+                    <div class="block-info-close">
+                        <h3>Хтивий <br>на 2х</h3>
+                        <p>5900 uah за ніч</p>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="back-lines-two"></div>
     </section>
-    <section class="review-section">
-        <h2>Магія моментів</h2>
-        <p>Хто вже відчув магію цього місця?
+    <section class="review-section fade-in">
+        <h2 class="fade-in">Магія моментів</h2>
+        <p class=" fade-in">Хто вже відчув магію цього місця?
             <br>Знайомтесь, наші гості – ті, хто обирає незабутні моменти серед гір.</p>
-        <div class="review-swiper-block">
-            <div class="review-block">
-                <div>
-                    <img src="img/video-reviev3.png" alt="img">
-                </div>
-                <div>
-                    <img src="img/video-reviev1.png" alt="img">
-                </div>
-                <div>
-                    <img src="img/video-reviev2.png" alt="img">
+        <div class="swiper-review  fade-in">
+            <div class="swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="img/video-reviev1.png" alt="Image 1">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="img/video-reviev2.png" alt="Image 2">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="img/video-reviev4.png" alt="Image 3">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="img/video-reviev3.png" alt="Image 4">
+                    </div>
                 </div>
             </div>
-            <div class="swiper-line">
-                <span></span>
-                <span class="stories-now"></span>
-                <span></span>
-                <span></span>
-            </div>
-            <a href="#" class="swipe-right"><i class="fa-solid fa-angles-left fa-xl" style="color: #374836;"></i></a>
-            <a href="#" class="swipe-left"><i class="fa-solid fa-angles-right fa-xl" style="color: #374836;"></i></a>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-pagination"></div>
         </div>
     </section>
-    <section class="faq-section">
+    <section class="faq-section fade-in">
         <div class="back-lines-three"></div>
-        <div class="faq-form">
+        <div class="faq-form  fade-in">
             <h3>Питання? В нас є відповіді!</h3>
-            <div class="question-block">
-                <div class="question">
-                    <img src="img/Ellipse.png" alt="img">
-                    <h4>Чи справді тут можна відпочити від міської метушні?</h4>
+            <div class="answer-wrap  fade-in">
+                <div class="question-block">
+                    <div class="question">
+                        <img src="img/Ellipse.png" alt="img">
+                        <h4>Чи справді тут можна відпочити від міської метушні?</h4>
+                    </div>
+                    <i class="fa-solid fa-arrow-right fa-2xl arrow-icon" style="color: #ffffff;"></i>
                 </div>
-                <i class="fa-solid fa-arrow-right fa-2xl" style="color: #ffffff;"></i>
+                <div class="answer">
+                    <p>Абсолютно! Наші будиночки знаходяться в серці природи,
+                        де лише тиша, гори й чисте повітря.</p>
+                </div>
             </div>
-            <div class="question-block">
-                <div class="question">
-                    <img src="img/Ellipse.png" alt="img">
-                    <h4>Чи справді тут можна відпочити від міської метушні?</h4>
+            <div class="answer-wrap  fade-in">
+                <div class="question-block">
+                    <div class="question">
+                        <img src="img/Ellipse.png" alt="img">
+                        <h4>А що, якщо погода не буде на моєму боці?</h4>
+                    </div>
+                    <i class="fa-solid fa-arrow-right fa-2xl arrow-icon" style="color: #ffffff;"></i>
                 </div>
-                <i class="fa-solid fa-arrow-right fa-2xl" style="color: #ffffff;"></i>
+                <div class="answer">
+                    <p>Наші затишні будинки перетворять дощові дні на можливість для розваг!
+                        Насолоджуйтеся книжками з бібліотеки, фільмами на проекторі,
+                        спостереженнями через телескоп або веселими настільними іграми.
+                        Дощ за вікном лише додасть затишку вашому відпочинку!</p>
+                </div>
             </div>
-            <div class="question-block">
-                <div class="question">
-                    <img src="img/Ellipse.png" alt="img">
-                    <h4>Чи справді тут можна відпочити від міської метушні?</h4>
+            <div class="answer-wrap  fade-in">
+                <div class="question-block">
+                    <div class="question">
+                        <img src="img/Ellipse.png" alt="img">
+                        <h4>Чи є там всі умови для комфортного відпочинку?</h4>
+                    </div>
+                    <i class="fa-solid fa-arrow-right fa-2xl arrow-icon" style="color: #ffffff;"></i>
                 </div>
-                <i class="fa-solid fa-arrow-right fa-2xl" style="color: #ffffff;"></i>
+                <div class="answer">
+                    <p>Звісно! Кожен будинок має всі необхідні зручності: від повністю
+                        обладнаної кухні до просторих кімнат і ванних, щоб ви почувалися як вдома.</p>
+                </div>
             </div>
-            <div class="question-block">
-                <div class="question">
-                    <img src="img/Ellipse.png" alt="img">
-                    <h4>Чи справді тут можна відпочити від міської метушні?</h4>
+            <div class="answer-wrap  fade-in">
+                <div class="question-block">
+                    <div class="question">
+                        <img src="img/Ellipse.png" alt="img">
+                        <h4>Чи можна з домашнім улюбленцем?</h4>
+                    </div>
+                    <i class="fa-solid fa-arrow-right fa-2xl arrow-icon" style="color: #ffffff;"></i>
                 </div>
-                <i class="fa-solid fa-arrow-right fa-2xl" style="color: #ffffff;"></i>
+                <div class="answer">
+                    <p>Так, ми — pet-friendly! Ви можете насолоджуватися відпочинком разом
+                        зі своїм пухнастим другом. Тварини — частина родини,
+                        і ми це розуміємо!</p>
+                </div>
             </div>
         </div>
     </section>
-    <section class="book-section">
-        <h2>Забронюйте до 01.11.24
+    <section class="book-section fade-in" id="book">
+        <h2 class=" fade-in">Забронюйте до 01.11.24
             <img src="img/markertext3.png" alt="img">
         </h2>
-        <div class="form-container">
+        <div class="form-container fade-in">
             <div class="form-row">
                 <div class="form-section">
                     <h4>Контактні дані</h4>
@@ -346,27 +405,84 @@
             </div>
         </div>
     </section>
-    <footer>
-        <div class="footer-info">
+    <footer id="footer fade-in">
+        <div class="footer-info  fade-in">
             <img src="img/logo-footer.png" alt="img">
             <div class="footer-block">
                 <h4>Соцмережі</h4>
                 <ul class="social-media">
-                    <li><a href="#">Інстаграм</a></li>
-                    <li><a href="#">Тік-Ток</a></li>
-                    <li><a href="#">Телеграм</a></li>
+                    <li><a target="_blank" href="https://www.instagram.com/skhovok.house/">Інстаграм</a></li>
+                    <li><a target="_blank" href="https://www.tiktok.com/foryou">Тік-Ток</a></li>
+                    <li><a target="_blank" href="https://web.telegram.org/k/">Телеграм</a></li>
                 </ul>
             </div>
-            <div class="footer-block">
+            <div class="footer-block fade-in">
                 <h4>Ми тут</h4>
-                <a href="#">Ми тут</a>
+                <a target="_blank" href="https://www.google.com/maps/place/Сховок+Skhovok/@48.116855,24.668188,13z/data=!4m6!3m5!1s0x4736fb123a66141f:0x41253fec6a73dbd2!8m2!3d48.1168553!4d24.6681881!16s%2Fg%2F11rxtwrmg0?hl=ru&entry=ttu&g_ep=EgoyMDI0MTExOS4yIKXMDSoASAFQAw%3D%3D">с. Дземброня</a>
             </div>
         </div>
-        <div class="footer-map">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d21306.922627446664!2d24.64518011151276!3d48.12247772466372!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4736fb123a66141f%3A0x41253fec6a73dbd2!2z0KHRhdC-0LLQvtC6IFNraG92b2s!5e0!3m2!1sru!2sua!4v1732281274115!5m2!1sru!2sua" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div class="footer-map  fade-in">
+            <a target="_blank" href="https://www.google.com/maps/place/Сховок+Skhovok/@48.116855,24.668188,13z/data=!4m6!3m5!1s0x4736fb123a66141f:0x41253fec6a73dbd2!8m2!3d48.1168553!4d24.6681881!16s%2Fg%2F11rxtwrmg0?hl=ru&entry=ttu&g_ep=EgoyMDI0MTExOS4yIKXMDSoASAFQAw%3D%3D"></a>
         </div>
     </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const houseCards = document.querySelectorAll(".house-card");
 
+            const updateCardStates = () => {
+                const isNarrowScreen = window.innerWidth < 1140;
+
+                houseCards.forEach(card => {
+                    if (isNarrowScreen) {
+                        // Відкриваємо всі картки
+                        card.classList.remove("close-card");
+                        card.querySelector(".block-info-active").classList.remove("hidden");
+                        card.querySelector(".block-info-close").classList.add("hidden");
+                    }
+                });
+            };
+
+            houseCards.forEach(card => {
+                const toggleButton = card.querySelector(".sizer-active");
+
+                toggleButton.addEventListener("click", () => {
+                    const isNarrowScreen = window.innerWidth < 1140;
+
+                    if (!isNarrowScreen) {
+                        // Закриваємо всі інші картки
+                        houseCards.forEach(otherCard => {
+                            if (otherCard !== card && !otherCard.classList.contains("close-card")) {
+                                otherCard.classList.add("close-card");
+                                otherCard.querySelector(".block-info-active").classList.add("hidden");
+                                otherCard.querySelector(".block-info-close").classList.remove("hidden");
+                            }
+                        });
+
+                        // Перемикаємо стан обраної картки
+                        const isClosed = card.classList.contains("close-card");
+
+                        if (isClosed) {
+                            card.classList.remove("close-card");
+                            card.querySelector(".block-info-active").classList.remove("hidden");
+                            card.querySelector(".block-info-close").classList.add("hidden");
+                        } else {
+                            card.classList.add("close-card");
+                            card.querySelector(".block-info-active").classList.add("hidden");
+                            card.querySelector(".block-info-close").classList.remove("hidden");
+                        }
+                    }
+                });
+            });
+
+            // Ініціалізація станів карток
+            updateCardStates();
+
+            // Відстеження зміни розміру екрана
+            window.addEventListener("resize", updateCardStates);
+        });
+
+    </script>
     <script src="script/script.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 </body>
 </html>
