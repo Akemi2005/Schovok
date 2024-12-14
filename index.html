@@ -9,7 +9,6 @@
     <link rel="icon" type="image/png" href="img/favicon.webp" sizes="16x16">
     <link rel="shortcut icon" href="img/favicon.webp" type="image/x-icon">
     <meta name="description" content="Оренда гірських будиночків">
-    <link rel="preload" href="bg-fon.webp" as="image">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
@@ -390,9 +389,9 @@
                     <input type="text" placeholder="2 дорослих">
                     <h4>Обраний будиночок</h4>
                     <select>
-                        <option>Сховок</option>
-                        <option>Криж</option>
-                        <option>Хтивий</option>
+                        <option>Skhovok</option>
+                        <option>Kryzh</option>
+                        <option>Khtyvyy</option>
                     </select>
                     <h4>Додаткові побажання</h4>
                     <textarea placeholder="Ми будемо з собакою!"></textarea>
@@ -429,26 +428,20 @@
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const houseCards = document.querySelectorAll(".house-card");
-
             const updateCardStates = () => {
                 const isNarrowScreen = window.innerWidth < 1140;
-
                 houseCards.forEach(card => {
                     if (isNarrowScreen) {
-                        // Відкриваємо всі картки
                         card.classList.remove("close-card");
                         card.querySelector(".block-info-active").classList.remove("hidden");
                         card.querySelector(".block-info-close").classList.add("hidden");
                     }
                 });
             };
-
             houseCards.forEach(card => {
                 const toggleButton = card.querySelector(".sizer-active");
-
                 toggleButton.addEventListener("click", () => {
                     const isNarrowScreen = window.innerWidth < 1140;
-
                     if (!isNarrowScreen) {
                         // Закриваємо всі інші картки
                         houseCards.forEach(otherCard => {
@@ -458,10 +451,8 @@
                                 otherCard.querySelector(".block-info-close").classList.remove("hidden");
                             }
                         });
-
                         // Перемикаємо стан обраної картки
                         const isClosed = card.classList.contains("close-card");
-
                         if (isClosed) {
                             card.classList.remove("close-card");
                             card.querySelector(".block-info-active").classList.remove("hidden");
@@ -474,16 +465,13 @@
                     }
                 });
             });
-
             // Ініціалізація станів карток
             updateCardStates();
-
             // Відстеження зміни розміру екрана
             window.addEventListener("resize", updateCardStates);
         });
-
     </script>
     <script src="script/script.js"></script>
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js" defer></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 </body>
 </html>
