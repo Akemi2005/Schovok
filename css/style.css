@@ -1431,6 +1431,7 @@ footer {
         max-width: 292px;
         min-width: 292px;
         min-height: 292px;
+        scroll-snap-align: start;
     }
     .answer {
         display: none;
