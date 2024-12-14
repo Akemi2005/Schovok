@@ -83,15 +83,6 @@ document.addEventListener("DOMContentLoaded", () => {
         if (activeSlide) activeSlide.style.transform = 'scale(1)';
     }
 
-    // Свайпер для квадратиків будиночків
-    document.querySelector(".cards-wrap")?.addEventListener("scroll", () => {
-        const cardsWrap = document.querySelector(".cards-wrap");
-        const totalScrollWidth = cardsWrap.scrollWidth - cardsWrap.clientWidth;
-        if (cardsWrap.scrollLeft >= totalScrollWidth - 1) {
-            cardsWrap.scrollTo({ left: 0, behavior: "smooth" });
-        }
-    });
-
     // Свайпер з їдою
     let cardWidth, foodsBlockWidth, maxIndex, currentIndex = 0;
     const foodsBlock = document.querySelector('.foods-block');
